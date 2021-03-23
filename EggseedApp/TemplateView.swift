@@ -91,28 +91,23 @@ struct TemplateView: View {
         ZStack{
         RoundedRectangle(cornerRadius: 8.0).fill(Color.black).aspectRatio(1.0, contentMode: .fit)
         
-        RoundedRectangle(cornerRadius: 8.0).stroke().fill(Color.white).aspectRatio(1.0, contentMode: .fit)
-          GeometryReader(content: { geometry in
-            let length = min(geometry.size.height, geometry.size.width)
-            let offsetX = (geometry.size.width - length) / 2.0
-            let offsetY = (geometry.size.height - length) / 2.0
-            VStack{
+          RoundedRectangle(cornerRadius: 8.0).stroke().fill(Color(red: 0.436, green: 0.471, blue: 0.552, opacity: 1.0)).aspectRatio(1.0, contentMode: .fit)
               Image(template.imageName
-            ).resizable()
+              ).resizable().foregroundColor(Color(red: 0.818, green: 0.887, blue: 1.0, opacity: 1.0))
                 .aspectRatio(contentMode: .fit)
-                .padding(8.0).frame(width: length, height: length, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).offset(x: offsetX, y: offsetY)
+                .padding(10.0)
+              .frame(width: 40.0, height: 40.0, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
               
-            }
-          })
-        }.frame(height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            
+          
+        }
         Text(template.label)
-          .font(.subheadline)
           .multilineTextAlignment(.center)
           .padding(.vertical, 4.0)
           .frame(height: 40, alignment: .top)
           
           .layoutPriority(1)
-      }.aspectRatio(/*@START_MENU_TOKEN@*/1.5/*@END_MENU_TOKEN@*/, contentMode: .fit).padding(8.0)
+      }.padding(8.0).frame(width: 120, height: 100)
     }
 }
 

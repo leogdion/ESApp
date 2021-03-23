@@ -8,21 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		B328E06F2607EAEF0090FAE0 /* EggseedAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328E06E2607EAEF0090FAE0 /* EggseedAppApp.swift */; };
-		B328E0712607EAEF0090FAE0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328E0702607EAEF0090FAE0 /* ContentView.swift */; };
+		B328E0712607EAEF0090FAE0 /* TemplateSelectionWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328E0702607EAEF0090FAE0 /* TemplateSelectionWindowView.swift */; };
 		B328E0732607EAEF0090FAE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B328E0722607EAEF0090FAE0 /* Assets.xcassets */; };
 		B328E0762607EAEF0090FAE0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B328E0752607EAEF0090FAE0 /* Preview Assets.xcassets */; };
 		B328E09E2607F30C0090FAE0 /* TemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328E09D2607F30C0090FAE0 /* TemplateView.swift */; };
+		B3B4CBE3260A281200592741 /* TemplateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4CBE2260A281200592741 /* TemplateGroupView.swift */; };
+		B3B4CBE6260A299100592741 /* TemplateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4CBE5260A299100592741 /* TemplateSelectorView.swift */; };
+		B3B4CBEB260A393C00592741 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4CBEA260A393C00592741 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B328E06B2607EAEF0090FAE0 /* EggseedApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EggseedApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B328E06E2607EAEF0090FAE0 /* EggseedAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggseedAppApp.swift; sourceTree = "<group>"; };
-		B328E0702607EAEF0090FAE0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B328E0702607EAEF0090FAE0 /* TemplateSelectionWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateSelectionWindowView.swift; sourceTree = "<group>"; };
 		B328E0722607EAEF0090FAE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B328E0752607EAEF0090FAE0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B328E0772607EAEF0090FAE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B328E0782607EAEF0090FAE0 /* EggseedApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EggseedApp.entitlements; sourceTree = "<group>"; };
 		B328E09D2607F30C0090FAE0 /* TemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateView.swift; sourceTree = "<group>"; };
+		B3B4CBE2260A281200592741 /* TemplateGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateGroupView.swift; sourceTree = "<group>"; };
+		B3B4CBE5260A299100592741 /* TemplateSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateSelectorView.swift; sourceTree = "<group>"; };
+		B3B4CBEA260A393C00592741 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +61,16 @@
 		B328E06D2607EAEF0090FAE0 /* EggseedApp */ = {
 			isa = PBXGroup;
 			children = (
-				B328E06E2607EAEF0090FAE0 /* EggseedAppApp.swift */,
-				B328E0702607EAEF0090FAE0 /* ContentView.swift */,
-				B328E0722607EAEF0090FAE0 /* Assets.xcassets */,
-				B328E0772607EAEF0090FAE0 /* Info.plist */,
 				B328E0782607EAEF0090FAE0 /* EggseedApp.entitlements */,
-				B328E0742607EAEF0090FAE0 /* Preview Content */,
+				B328E0772607EAEF0090FAE0 /* Info.plist */,
+				B328E0702607EAEF0090FAE0 /* TemplateSelectionWindowView.swift */,
+				B328E06E2607EAEF0090FAE0 /* EggseedAppApp.swift */,
+				B3B4CBE2260A281200592741 /* TemplateGroupView.swift */,
+				B3B4CBE5260A299100592741 /* TemplateSelectorView.swift */,
 				B328E09D2607F30C0090FAE0 /* TemplateView.swift */,
+				B328E0722607EAEF0090FAE0 /* Assets.xcassets */,
+				B328E0742607EAEF0090FAE0 /* Preview Content */,
+				B3B4CBEA260A393C00592741 /* ContentView.swift */,
 			);
 			path = EggseedApp;
 			sourceTree = "<group>";
@@ -143,8 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B328E0712607EAEF0090FAE0 /* ContentView.swift in Sources */,
+				B3B4CBE6260A299100592741 /* TemplateSelectorView.swift in Sources */,
+				B328E0712607EAEF0090FAE0 /* TemplateSelectionWindowView.swift in Sources */,
+				B3B4CBEB260A393C00592741 /* ContentView.swift in Sources */,
 				B328E06F2607EAEF0090FAE0 /* EggseedAppApp.swift in Sources */,
+				B3B4CBE3260A281200592741 /* TemplateGroupView.swift in Sources */,
 				B328E09E2607F30C0090FAE0 /* TemplateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
