@@ -7,9 +7,41 @@
 
 import SwiftUI
 
-struct Template {
+struct TemplateGroup : Identifiable {
+  let label : String
+  let templates : [Template]
+  
+  var id:  String {
+    return self.label
+  }
+}
+struct Template : Identifiable {
   let imageName : String
   let label : String
+  let id : UUID = .init()
+  
+  static let groups : [TemplateGroup] = [
+    TemplateGroup(
+      label: "Application", templates:
+    [
+      Template(
+        imageName: "001-blood-drop",
+        label: "Vapor Server-Side Application"
+      ),
+      
+        Template(
+          imageName: "002-command-line",
+          label: "Basic Executable"
+        ),
+    ]
+      ),
+    TemplateGroup(label: "Library", templates: [
+                    Template(
+                      imageName: "toolbox-3",
+                      label: "Multiplatform Library"
+                    )
+    ])
+  ]
 }
 
 /*
