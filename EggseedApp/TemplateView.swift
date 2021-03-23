@@ -26,7 +26,7 @@ struct Template : Identifiable {
     [
       Template(
         imageName: "001-blood-drop",
-        label: "Vapor Server-Side Application"
+        label: "Vapor Server App"
       ),
       Template(
         imageName: "004-lambda",
@@ -34,7 +34,7 @@ struct Template : Identifiable {
       ),
       Template(
         imageName: "006-argument",
-        label: "Argument Parser Command Line Tool"
+        label: "Argument Parser Command"
       ),
       
         Template(

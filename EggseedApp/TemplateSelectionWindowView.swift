@@ -7,7 +7,52 @@
 
 import SwiftUI
 
+struct PrimaryButtonView: NSViewRepresentable {
+    typealias NSViewType = PrimaryButton
+
+    let title: String
+    let action: () -> Void
+
+    init(_ title: String, action: @escaping () -> Void) {
+        self.title = title
+        self.action = action
+      
+    }
+
+    func makeNSView(context: Context) -> PrimaryButton {
+        PrimaryButton(title, action: action)
+    }
+
+    func updateNSView(_ nsView: PrimaryButton, context: Context) {
+        return
+    }
+}
+class PrimaryButton: NSButton {
+    let buttonAction: () -> Void
+
+    init(_ title: String, action: @escaping () -> Void) {
+        self.buttonAction = action
+        super.init(frame: .zero)
+        self.title = title
+        self.action = #selector(clickButton(_:))
+        bezelStyle = .rounded  //Only this style results in blue tint for button
+        isBordered = true
+        focusRingType = .none
+        keyEquivalent = "\r"
+      self.isHighlighted = true
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
+
+    @objc func clickButton(_ sender: PrimaryButton) {
+        buttonAction()
+    }
+}
+
 struct TemplateSelectionWindowView: View {
+  
   var body: some View {
     VStack(alignment: .leading){
       Text("Choose a template for your new package:")
@@ -21,9 +66,10 @@ struct TemplateSelectionWindowView: View {
         Button(action: {}, label: {
           Text("Previous").frame(width: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         })
-        Button(action: {}, label: {
-          Text("Next").frame(width: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        })
+        PrimaryButtonView("Next") {
+          
+        }.frame(width: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+
       }.padding(.top, 8.0)
     }.padding(30).frame(width: 700, height: 500, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).fixedSize()
   }
