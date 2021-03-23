@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
+    GroupBox{
     GeometryReader(content: { geometry in
           List{
             ForEach(
@@ -17,7 +18,7 @@ struct ContentView: View {
             }
           }
     })
-
+    }.padding(40)
   }
 }
   

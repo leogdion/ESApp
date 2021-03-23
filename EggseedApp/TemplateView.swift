@@ -28,17 +28,38 @@ struct Template : Identifiable {
         imageName: "001-blood-drop",
         label: "Vapor Server-Side Application"
       ),
+      Template(
+        imageName: "004-lambda",
+        label: "AWS Lambda"
+      ),
+      Template(
+        imageName: "006-argument",
+        label: "Argument Parser Command Line Tool"
+      ),
       
         Template(
           imageName: "002-command-line",
           label: "Basic Executable"
         ),
+      
+     
     ]
       ),
     TemplateGroup(label: "Library", templates: [
                     Template(
                       imageName: "toolbox-3",
                       label: "Multiplatform Library"
+                    )
+    ]),
+    TemplateGroup(label: "Web Site", templates: [
+      
+                      Template(
+                        imageName: "015-web-development",
+                        label: "Publish Static Site"
+                      ),
+                    Template(
+                      imageName: "016-quill",
+                      label: "Feather CMS"
                     )
     ])
   ]
@@ -83,11 +104,13 @@ struct TemplateView: View {
               
             }
           })
-        }
-        Text("Vapor Server-Side Application")
+        }.frame(height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        Text(template.label)
           .font(.subheadline)
           .multilineTextAlignment(.center)
           .padding(.vertical, 4.0)
+          .frame(height: 40, alignment: .top)
+          
           .layoutPriority(1)
       }.aspectRatio(/*@START_MENU_TOKEN@*/1.5/*@END_MENU_TOKEN@*/, contentMode: .fit).padding(8.0)
     }
