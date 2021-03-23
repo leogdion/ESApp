@@ -9,17 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
-    List{
-      Section(header: Text("Application")){
-        LazyHGrid(
-          rows: [GridItem(.fixed(100)),GridItem(.fixed(100)),GridItem(.fixed(100)),GridItem(.fixed(100))]
-        ) {
-          ForEach(0..<10) { _ in
-            TemplateView(template: Template(imageName: "001-blood-drop", label: "Vapor Server-Side Application"))
+    GeometryReader(content: { geometry in
+          List{
+            ForEach(
+              Template.groups) { group in
+              TemplateGroupView(group: group, geometry: geometry)
+            }
           }
-        }
-      }
-    }
+    })
+
   }
 }
   
