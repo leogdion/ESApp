@@ -34,6 +34,7 @@ class PrimaryButton: NSButton {
         self.buttonAction = action
         super.init(frame: .zero)
         self.title = title
+      self.target = self
         self.action = #selector(clickButton(_:))
         bezelStyle = .rounded  //Only this style results in blue tint for button
         isBordered = true
@@ -52,10 +53,11 @@ class PrimaryButton: NSButton {
 }
 
 struct TemplateSelectionWindowView: View {
-  
+  @Binding var currentPage : Int
+  let page : Int = .random(in: 0...10)
   var body: some View {
     VStack(alignment: .leading){
-      Text("Choose a template for your new package:")
+      Text("Choose a template \(page) for your new package:")
         
       TemplateSelectorView().border(Color(red: 0.436, green: 0.471, blue: 0.552, opacity: 1.0), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
       HStack{
@@ -63,11 +65,13 @@ struct TemplateSelectionWindowView: View {
           Text("Cancel").frame(width: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         })
         Spacer()        
-        Button(action: {}, label: {
+        Button(action: {
+          self.currentPage = self.currentPage - 1
+        }, label: {
           Text("Previous").frame(width: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         })
         PrimaryButtonView("Next") {
-          
+          self.currentPage = self.currentPage + 1
         }.frame(width: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 
       }.padding(.top, 8.0)
@@ -77,6 +81,6 @@ struct TemplateSelectionWindowView: View {
   
   struct TemplateSelectionWindowView_Previews: PreviewProvider {
     static var previews: some View {
-      TemplateSelectionWindowView()
+      TemplateSelectionWindowView(currentPage: .constant(0))
     }
   }
