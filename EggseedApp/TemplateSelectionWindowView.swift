@@ -53,17 +53,22 @@ class PrimaryButton: NSButton {
 }
 
 struct TemplateSelectionWindowView: View {
+  @Binding var isShown : Bool
   @State var currentPage : Int = 0
+  
+  
   var body: some View {
     VStack(alignment: .leading){
       Text("Choose a template for your new package:")
         
       PageView(currentPage: $currentPage) {
         TemplateSelectorView()
-        EmptyView()
+        PackageFormView()
       }.border(Color(red: 0.436, green: 0.471, blue: 0.552, opacity: 1.0), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
       HStack{
-        Button(action: {}, label: {
+        Button(action: {
+          isShown = false
+        }, label: {
           Text("Cancel").frame(width: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         })
         Spacer()        
@@ -71,7 +76,7 @@ struct TemplateSelectionWindowView: View {
           self.currentPage = self.currentPage - 1
         }, label: {
           Text("Previous").frame(width: 70, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        })
+        }).disabled(currentPage < 1)
         PrimaryButtonView("Next") {
           self.currentPage = self.currentPage + 1
         }.frame(width: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -83,6 +88,6 @@ struct TemplateSelectionWindowView: View {
   
   struct TemplateSelectionWindowView_Previews: PreviewProvider {
     static var previews: some View {
-      TemplateSelectionWindowView()
+      TemplateSelectionWindowView(isShown: .constant(true))
     }
   }

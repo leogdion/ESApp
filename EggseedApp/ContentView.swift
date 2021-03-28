@@ -14,7 +14,7 @@ struct ContentView: View {
       Button("Start Template") {
         self.presentNewTemplate = true
       }.sheet(isPresented: self.$presentNewTemplate, content: {
-        TemplateSelectionWindowView()
+        TemplateSelectionWindowView(isShown: $presentNewTemplate)
       })
     }
 }

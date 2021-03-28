@@ -13,6 +13,7 @@
 		B328E0762607EAEF0090FAE0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B328E0752607EAEF0090FAE0 /* Preview Assets.xcassets */; };
 		B328E09E2607F30C0090FAE0 /* TemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328E09D2607F30C0090FAE0 /* TemplateView.swift */; };
 		B3591284260BEFCF0084F3B4 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3591283260BEFCF0084F3B4 /* PageView.swift */; };
+		B35A3B8F26112C340019783E /* PackageFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35A3B8E26112C340019783E /* PackageFormView.swift */; };
 		B398B2CA260A8462006055DF /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398B2C9260A8462006055DF /* PageViewController.swift */; };
 		B3B4CBE3260A281200592741 /* TemplateGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4CBE2260A281200592741 /* TemplateGroupView.swift */; };
 		B3B4CBE6260A299100592741 /* TemplateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B4CBE5260A299100592741 /* TemplateSelectorView.swift */; };
@@ -29,6 +30,7 @@
 		B328E0782607EAEF0090FAE0 /* EggseedApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EggseedApp.entitlements; sourceTree = "<group>"; };
 		B328E09D2607F30C0090FAE0 /* TemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateView.swift; sourceTree = "<group>"; };
 		B3591283260BEFCF0084F3B4 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		B35A3B8E26112C340019783E /* PackageFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageFormView.swift; sourceTree = "<group>"; };
 		B398B2C9260A8462006055DF /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		B3B4CBE2260A281200592741 /* TemplateGroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateGroupView.swift; sourceTree = "<group>"; };
 		B3B4CBE5260A299100592741 /* TemplateSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemplateSelectorView.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				B3B4CBEA260A393C00592741 /* ContentView.swift */,
 				B398B2C9260A8462006055DF /* PageViewController.swift */,
 				B3591283260BEFCF0084F3B4 /* PageView.swift */,
+				B35A3B8E26112C340019783E /* PackageFormView.swift */,
 			);
 			path = EggseedApp;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3B4CBE6260A299100592741 /* TemplateSelectorView.swift in Sources */,
+				B35A3B8F26112C340019783E /* PackageFormView.swift in Sources */,
 				B3591284260BEFCF0084F3B4 /* PageView.swift in Sources */,
 				B328E0712607EAEF0090FAE0 /* TemplateSelectionWindowView.swift in Sources */,
 				B3B4CBEB260A393C00592741 /* ContentView.swift in Sources */,
