@@ -94,12 +94,36 @@ struct PackageFormView: View {
           }.frame(width: 235)
         }
         
+        HStack(alignment: .top){
+          Spacer()
+            Text("Documentation:")
+          
+          Picker(selection: .constant("SourceDocs"), label: Text("Avocado:")) {
+              Text("SourceDocs")
+              Text("Jazzy")
+            Text("None")
+            
+          }.pickerStyle(RadioGroupPickerStyle()).labelsHidden().frame(width: 235, alignment: .leading)
+        }
+        
+        HStack(alignment: .top){
+          Spacer()
+          Toggle("Add Git Hooks with Komondor", isOn: .constant(true))
+          
+          .frame(width: 235, alignment: .leading)
+        }
+        HStack(alignment: .top){
+          Spacer()
+          Toggle("Release Management with Rocket", isOn: .constant(true))
+          
+          .frame(width: 235, alignment: .leading)
+        }
       }.padding(.horizontal, 120)
     }
 }
 
 struct PackageFormView_Previews: PreviewProvider {
     static var previews: some View {
-      TemplateSelectionWindowView(isShown: .constant(true))
+      PackageFormView()
     }
 }
