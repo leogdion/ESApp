@@ -3,15 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B309E7DD26127650000AD905 /* EggSeedConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B309E7DC26127650000AD905 /* EggSeedConfiguration.swift */; };
 		B328E06F2607EAEF0090FAE0 /* EggseedAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328E06E2607EAEF0090FAE0 /* EggseedAppApp.swift */; };
 		B328E0712607EAEF0090FAE0 /* TemplateSelectionWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328E0702607EAEF0090FAE0 /* TemplateSelectionWindowView.swift */; };
 		B328E0732607EAEF0090FAE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B328E0722607EAEF0090FAE0 /* Assets.xcassets */; };
 		B328E0762607EAEF0090FAE0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B328E0752607EAEF0090FAE0 /* Preview Assets.xcassets */; };
 		B328E09E2607F30C0090FAE0 /* TemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B328E09D2607F30C0090FAE0 /* TemplateView.swift */; };
+		B3396BA926164A3D00DDCDDD /* Options in Frameworks */ = {isa = PBXBuildFile; productRef = B3396BA826164A3D00DDCDDD /* Options */; };
 		B3591284260BEFCF0084F3B4 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3591283260BEFCF0084F3B4 /* PageView.swift */; };
 		B35A3B8F26112C340019783E /* PackageFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35A3B8E26112C340019783E /* PackageFormView.swift */; };
 		B398B2CA260A8462006055DF /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B398B2C9260A8462006055DF /* PageViewController.swift */; };
@@ -21,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B309E7DC26127650000AD905 /* EggSeedConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggSeedConfiguration.swift; sourceTree = "<group>"; };
 		B328E06B2607EAEF0090FAE0 /* EggseedApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EggseedApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B328E06E2607EAEF0090FAE0 /* EggseedAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggseedAppApp.swift; sourceTree = "<group>"; };
 		B328E0702607EAEF0090FAE0 /* TemplateSelectionWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateSelectionWindowView.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3396BA926164A3D00DDCDDD /* Options in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +84,7 @@
 				B398B2C9260A8462006055DF /* PageViewController.swift */,
 				B3591283260BEFCF0084F3B4 /* PageView.swift */,
 				B35A3B8E26112C340019783E /* PackageFormView.swift */,
+				B309E7DC26127650000AD905 /* EggSeedConfiguration.swift */,
 			);
 			path = EggseedApp;
 			sourceTree = "<group>";
@@ -108,6 +113,9 @@
 			dependencies = (
 			);
 			name = EggseedApp;
+			packageProductDependencies = (
+				B3396BA826164A3D00DDCDDD /* Options */,
+			);
 			productName = EggseedApp;
 			productReference = B328E06B2607EAEF0090FAE0 /* EggseedApp.app */;
 			productType = "com.apple.product-type.application";
@@ -135,6 +143,9 @@
 				Base,
 			);
 			mainGroup = B328E0622607EAEF0090FAE0;
+			packageReferences = (
+				B3396BA726164A3D00DDCDDD /* XCRemoteSwiftPackageReference "Options" */,
+			);
 			productRefGroup = B328E06C2607EAEF0090FAE0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -168,6 +179,7 @@
 				B3B4CBEB260A393C00592741 /* ContentView.swift in Sources */,
 				B328E06F2607EAEF0090FAE0 /* EggseedAppApp.swift in Sources */,
 				B3B4CBE3260A281200592741 /* TemplateGroupView.swift in Sources */,
+				B309E7DD26127650000AD905 /* EggSeedConfiguration.swift in Sources */,
 				B398B2CA260A8462006055DF /* PageViewController.swift in Sources */,
 				B328E09E2607F30C0090FAE0 /* TemplateView.swift in Sources */,
 			);
@@ -361,6 +373,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B3396BA726164A3D00DDCDDD /* XCRemoteSwiftPackageReference "Options" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/brightdigit/Options.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B3396BA826164A3D00DDCDDD /* Options */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B3396BA726164A3D00DDCDDD /* XCRemoteSwiftPackageReference "Options" */;
+			productName = Options;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B328E0632607EAEF0090FAE0 /* Project object */;
 }

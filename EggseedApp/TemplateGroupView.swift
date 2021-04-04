@@ -20,6 +20,8 @@ struct TemplateGroupHeaderView : View {
   }
 }
 struct TemplateGroupView: View {
+  
+  @Binding var selectedTemplate : UUID?
   let group : TemplateGroup
   func rows (forCount count: Int) -> [GridItem] {
     let itemsPerRow = Int(700 / 120.0)
@@ -32,7 +34,9 @@ struct TemplateGroupView: View {
           LazyHGrid(
             rows: rows(forCount: group.templates.count)
           ) {
-            ForEach(group.templates, content: TemplateView.init(template:))
+            
+            ForEach(group.templates, content:{ TemplateView.init(selectedTemplate: $selectedTemplate, template: $0)
+            })
             
           }.padding(.top, 4)
       }
@@ -47,7 +51,7 @@ struct TemplateGroupView_Previews: PreviewProvider {
       List{
         ForEach(Template.groups) { (group) in
           
-          TemplateGroupView(group: group)
+          TemplateGroupView(selectedTemplate: .constant(nil), group: group)
         }.padding(.horizontal, -8)
 //        TemplateGroupView(group: Template.groups.first!, geometry: geometry).listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0)).frame(width: geometry.size.width, alignment: .leading)
 //        TemplateGroupView(group: Template.groups[1], geometry: geometry).listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0)).frame(width: geometry.size.width, alignment: .leading)

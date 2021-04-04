@@ -54,7 +54,7 @@ struct PageView: View {
 struct PageView_Previews: PreviewProvider {
     static var previews: some View {
       PageView(currentPage: .constant(1)) {
-        TemplateSelectionWindowView(isShown: .constant(true))
+        TemplateSelectionWindowView(isShown: .constant(true), selectedTemplate: .constant(nil))
       }.frame(width: 700, height: 500, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).fixedSize()
            
     }

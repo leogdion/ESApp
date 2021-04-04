@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct TemplateSelectorView: View {
+  
+  @Binding var selectedTemplate : UUID? 
   var body: some View {
     GeometryReader(content: { geometry in
           List{
             ForEach(
               Template.groups) { group in
-              TemplateGroupView(group: group).listRowInsets(.init())
+              TemplateGroupView(selectedTemplate: $selectedTemplate, group: group).listRowInsets(.init())
             }
           }
     })
@@ -22,6 +24,6 @@ struct TemplateSelectorView: View {
   
   struct TemplateSelectorView_Preview: PreviewProvider {
     static var previews: some View {
-      TemplateSelectorView()
+      TemplateSelectorView(selectedTemplate: .constant(nil))
     }
   }

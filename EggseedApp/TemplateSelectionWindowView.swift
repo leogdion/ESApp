@@ -56,13 +56,15 @@ struct TemplateSelectionWindowView: View {
   @Binding var isShown : Bool
   @State var currentPage : Int = 0
   
+  @Binding var selectedTemplate : UUID?
   
   var body: some View {
     VStack(alignment: .leading){
+      
       Text("Choose a template for your new package:")
         
       PageView(currentPage: $currentPage) {
-        TemplateSelectorView()
+        TemplateSelectorView(selectedTemplate : $selectedTemplate)
         PackageFormView()
       }.border(Color(red: 0.436, green: 0.471, blue: 0.552, opacity: 1.0), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
       HStack{
@@ -88,6 +90,6 @@ struct TemplateSelectionWindowView: View {
   
   struct TemplateSelectionWindowView_Previews: PreviewProvider {
     static var previews: some View {
-      TemplateSelectionWindowView(isShown: .constant(true))
+      TemplateSelectionWindowView(isShown: .constant(true), selectedTemplate: .constant(nil))
     }
   }
