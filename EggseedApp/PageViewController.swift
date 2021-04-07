@@ -7,12 +7,48 @@
 
 import Cocoa
 import SwiftUI
-struct PageViewController<Page: View>: NSViewControllerRepresentable {
+
+protocol PageMessaged {
+  var message : String {
+    get
+  }
+}
+
+extension View {
+  
+  var pageMessage : String? {
+    guard let page = self as? PageMessaged else {
+      return nil
+    }
+    return page.message
+  }
+  
+  func page (withMessage message: String) -> some View {
+    PageMessagedView.init(message: message, wrapped: AnyView(self))
+  }
+}
+
+struct PageMessagedView : View, PageMessaged {
+  let message: String
+  let wrapped : AnyView
+  var body: some View {
+    return wrapped
+  }
+  
+  static func wrap<V: View>(_ view: V) -> PageMessagedView {
+    guard let pmv = view as? PageMessagedView else {
+      return PageMessagedView(message: "", wrapped: AnyView(view))
+    }
+    return pmv
+  }
+}
+struct PageViewController: NSViewControllerRepresentable {
 
   
   
-    var pages: [Page]
+    var pages: [PageMessagedView]
     @Binding var currentPage: Int
+  @Binding var pageMessage: String
 
 //    func makeCoordinator() -> Coordinator {
 //        Coordinator(self)
@@ -32,6 +68,9 @@ struct PageViewController<Page: View>: NSViewControllerRepresentable {
   
   func updateNSViewController(_ nsViewController: NSTabViewController, context: Context) {
     nsViewController.selectedTabViewItemIndex = currentPage
+    DispatchQueue.main.async {
+      self.pageMessage = self.pages[currentPage].pageMessage ?? ""      
+    }
   }
   
 

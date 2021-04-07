@@ -55,17 +55,17 @@ class PrimaryButton: NSButton {
 struct TemplateSelectionWindowView: View {
   @Binding var isShown : Bool
   @State var currentPage : Int = 0
-  
+  @State var pageMessage: String = ""
   @Binding var selectedTemplate : UUID?
   
   var body: some View {
     VStack(alignment: .leading){
       
-      Text("Choose a template for your new package:")
+      Text(pageMessage)
         
-      PageView(currentPage: $currentPage) {
-        TemplateSelectorView(selectedTemplate : $selectedTemplate)
-        PackageFormView()
+      PageView(currentPage: $currentPage, pageMessage: $pageMessage) {
+        TemplateSelectorView(selectedTemplate : $selectedTemplate).page(withMessage: "Choose a template for your new package:")
+        PackageFormView().page(withMessage: "Choose options for your new package:")
       }.border(Color(red: 0.436, green: 0.471, blue: 0.552, opacity: 1.0), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
       HStack{
         Button(action: {
