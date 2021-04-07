@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PackageFormView: View {
+  @Binding var isNextEnabled : Bool
     var body: some View {
       VStack{
         HStack{
@@ -124,6 +125,6 @@ struct PackageFormView: View {
 
 struct PackageFormView_Previews: PreviewProvider {
     static var previews: some View {
-      PackageFormView()
+      PackageFormView(isNextEnabled: .constant(false))
     }
 }

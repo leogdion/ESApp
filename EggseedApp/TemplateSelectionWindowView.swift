@@ -56,6 +56,7 @@ struct TemplateSelectionWindowView: View {
   @Binding var isShown : Bool
   @State var currentPage : Int = 0
   @State var pageMessage: String = ""
+  @State var isNextEnabled : Bool = false
   @Binding var selectedTemplate : UUID?
   
   var body: some View {
@@ -64,8 +65,8 @@ struct TemplateSelectionWindowView: View {
       Text(pageMessage)
         
       PageView(currentPage: $currentPage, pageMessage: $pageMessage) {
-        TemplateSelectorView(selectedTemplate : $selectedTemplate).page(withMessage: "Choose a template for your new package:")
-        PackageFormView().page(withMessage: "Choose options for your new package:")
+        TemplateSelectorView(selectedTemplate : $selectedTemplate, isNextEnabled: $isNextEnabled).page(withMessage: "Choose a template for your new package:")
+        PackageFormView(isNextEnabled: $isNextEnabled).page(withMessage: "Choose options for your new package:")
       }.border(Color(red: 0.436, green: 0.471, blue: 0.552, opacity: 1.0), width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
       HStack{
         Button(action: {
@@ -81,7 +82,7 @@ struct TemplateSelectionWindowView: View {
         }).disabled(currentPage < 1)
         PrimaryButtonView("Next") {
           self.currentPage = self.currentPage + 1
-        }.frame(width: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }.frame(width: 80, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).disabled(!isNextEnabled)
 
       }.padding(.top, 8.0)
     }.padding(30).frame(width: 700, height: 500, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).fixedSize()
