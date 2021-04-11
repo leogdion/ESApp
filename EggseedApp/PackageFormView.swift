@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+
 struct PackageFormView: View {
+  @State var ciSystems : ContinuousIntegrationSystemSet
   @Binding var isNextEnabled : Bool
     var body: some View {
       VStack{
@@ -31,23 +33,17 @@ struct PackageFormView: View {
           Spacer()
             Text("Continuous Integration:")
           Menu {
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-              Label("GitHub Actions", image: "gear")
-            })
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-              Label("Travis CI", image: "gear")
-            })
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-              Label("Gitlab CI", image: "gear")
-            })
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-              Label("Bitrise", image: "gear")
-            })
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-              Label("CircleCI", image: "gear")
-            })
+            ForEach(ContinuousIntegrationSystemSet.all.array()) { (ci) in
+              Button(action: {
+                self.ciSystems.toggle(ci)
+              }, label: {
+                Label(ci.labelText, image: "gear")
+              })
+            }
           } label: {
-            Text("Test, GitHub")
+            Text(self.ciSystems.array().map{
+              $0.labelText
+            }.joined(separator: ", "))
           }.frame(width: 235)
         }
         HStack{
@@ -125,6 +121,6 @@ struct PackageFormView: View {
 
 struct PackageFormView_Previews: PreviewProvider {
     static var previews: some View {
-      PackageFormView(isNextEnabled: .constant(false))
+      PackageFormView(ciSystems: .all, isNextEnabled: .constant(false))
     }
 }

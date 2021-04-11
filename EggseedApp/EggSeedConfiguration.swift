@@ -8,13 +8,58 @@
 import Foundation
 import Options
 
-public enum ContinuousIntegrationSystem: Int {
-  case bitrise = 1
-  case travisci = 2
-  case github = 4
-  case circleci = 8
+
+public enum ContinuousIntegrationSystem: Int, MappedValueCollectionRepresented, Identifiable {
+  
+  
+  public typealias MappedType = String
+  
+  public static let mappedValues = [
+    "github",
+    "travisci"
+  ]
+  
+  
+  public static let labels = [
+    "Github Action",
+    "Travis CI"
+  ]
+  
+  
+  case github
+  case travisci
+  
+  
+  public var id : Int {
+    return self.rawValue
+  }
+  
+  public var labelText : String {
+    return Self.labels[self.rawValue]
+  }
 }
 
+
+
+
+extension EnumSet where EnumType : CaseIterable {
+  static var all : Self {
+    return Self.init(values: Array(EnumType.allCases))
+  }
+}
+
+extension EnumSet {
+  mutating func toggle (_ value: EnumType) {
+    let other = EnumSet(values: [value])
+    if self.contains(other) {
+      self.remove(other)
+    } else {
+      self.formUnion(other)
+    }
+  }
+}
+
+typealias ContinuousIntegrationSystemSet = EnumSet<ContinuousIntegrationSystem>
 //
 //public enum ContinuousIntegrationSystem: Int, CaseIterable {
 //  case bitrise = 1
